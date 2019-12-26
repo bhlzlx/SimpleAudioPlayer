@@ -1,2 +1,3 @@
 # SimpleAudioPlayer
-a simple audio player that support **MP3** &amp; **OGG** format
+a simple audio player based on OpenAL, LAME, libVorbis
+support **MP3** &amp; **OGG** audio format
