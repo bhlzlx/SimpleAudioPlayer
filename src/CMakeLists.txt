@@ -77,4 +77,5 @@ target_include_directories( SAP
 	PUBLIC ${XMAS_SOLUTION_DIR}/3rd/LockFreeQueue/arrayImp
 	PRIVATE ${OGG_INC_DIR}
 	PRIVATE ${VORBIS_INC_DIR}
+	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include
 )
