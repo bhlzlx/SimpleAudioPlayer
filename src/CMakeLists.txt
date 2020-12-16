@@ -66,6 +66,10 @@ if( SUPPORT_WAV )
 		PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/audioStreamPCM.cpp
 	)
 endif()
+target_sources( SAP
+	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../include/io/archieve.cpp
+	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../include/string/path.cpp
+)
 
 target_include_directories( SAP 
 	PUBLIC ${OAL_INC_DIR}
@@ -73,5 +77,4 @@ target_include_directories( SAP
 	PUBLIC ${XMAS_SOLUTION_DIR}/3rd/LockFreeQueue/arrayImp
 	PRIVATE ${OGG_INC_DIR}
 	PRIVATE ${VORBIS_INC_DIR}
-	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include
 )
