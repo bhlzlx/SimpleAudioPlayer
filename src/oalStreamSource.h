@@ -11,7 +11,7 @@
 #include <thread>
 #include <functional>
 #include <deque>
-#include "LockFreeQueueCpp11.h"
+#include <LockFreeQueue.h>
 
 namespace Nix
 {
@@ -22,7 +22,7 @@ namespace Nix
 		private:
 			std::thread									m_thread;
 			std::atomic_bool							m_exit;
-			LockFreeQueueCpp11<std::function<int()>>	m_tasks;
+			ugi::LockFreeQueue<std::function<int()>>	m_tasks;
 			//
 			static int DecodeProc(AudioDecoderService* _this) {
 				std::function<std::shared_ptr<Buffer>()> task;
@@ -72,7 +72,7 @@ namespace Nix
 			} state;
 			IAudioStream *									m_audioStream;
 			AudioDecoderService*							m_decodeService; 
-			LockFreeQueueCpp11< std::shared_ptr<Buffer> >	m_decodeQueue;
+			ugi::LockFreeQueue< std::shared_ptr<Buffer> >	m_decodeQueue;
 			bool											m_loop;
 			//
 			std::atomic<uint32_t>							m_numBufferQueued;

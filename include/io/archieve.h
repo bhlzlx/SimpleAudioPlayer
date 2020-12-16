@@ -10,9 +10,9 @@ namespace Nix
 {
     enum SeekFlag
     {
-        SeekCur = 0,
-        SeekEnd,
-        SeekSet
+        SeekCur = 1,
+        SeekEnd = 2,
+        SeekSet = 0
     };
 
     struct IFile

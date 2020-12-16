@@ -165,6 +165,7 @@ namespace Nix
             size_t memLeft = (_size - _position);
             size_t readReal = _bytes > memLeft ? memLeft : _bytes; 
             memcpy( out_, (char*)_raw + _position, readReal);
+            _position += readReal;
             return readReal;
         }
 

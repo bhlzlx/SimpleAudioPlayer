@@ -32,7 +32,7 @@ namespace Nix
 						break;
 					}
 				}
-				// 现在的Pcm framecount和之前的 stream对应的可能不一样,但是现在存的还是之前的framecount
+				// 锟斤拷锟节碉拷Pcm framecount锟斤拷之前锟斤拷 stream锟斤拷应锟侥匡拷锟杰诧拷一锟斤拷,锟斤拷锟斤拷锟斤拷锟节达拷幕锟斤拷锟街帮拷锟絝ramecount
 				if (listBuffCount > frameCount)
 				{
 					for (size_t i = 0; i < listBuffCount - frameCount; ++i)
@@ -143,11 +143,9 @@ namespace Nix
 						break;
 					}
 				}
-				while (m_decodeQueue.size()) {
-					std::shared_ptr<Buffer> buffer;
-					if (m_decodeQueue.pop(buffer)) {
-						queueBuffer(buffer);
-					}
+				std::shared_ptr<Buffer> buffer;
+				while(m_decodeQueue.pop(buffer)) {
+					queueBuffer(buffer);
 				}
 				return true;
 			}
@@ -193,7 +191,7 @@ namespace Nix
 		void StreamAudioSource::seek(double _time)
 		{
 			m_audioStream->seek(_time);
-			// buff全部取出来重新填
+			// buff全锟斤拷取锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
 			std::vector< std::shared_ptr<Buffer> > vecBuff;
 			size_t buffCnt = queuedBufferCount();
 			for (size_t i = 0; i < buffCnt; ++i)
@@ -202,7 +200,7 @@ namespace Nix
 				unqueBuffer(buff);
 				vecBuff.push_back(buff);
 			}
-			// 填buff
+			// 锟斤拷buff
 			for (auto& buff : vecBuff)
 			{
 				const void * dataChunk;
